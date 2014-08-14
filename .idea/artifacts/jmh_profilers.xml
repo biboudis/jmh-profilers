@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="jmh-profilers">
+    <output-path>$PROJECT_DIR$/out/artifacts/jmh_profilers</output-path>
+    <root id="archive" name="jmh-profilers.jar">
+      <element id="module-output" name="jmh-profilers" />
+    </root>
+  </artifact>
+</component>
