@@ -1,0 +1,65 @@
+Index: jmh-core/src/main/java/org/openjdk/jmh/runner/options/CommandLineOptions.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- jmh-core/src/main/java/org/openjdk/jmh/runner/options/CommandLineOptions.java	(revision 949:f90aef7f1d2c93e0d3f09593f67104ae4e7617bc)
++++ jmh-core/src/main/java/org/openjdk/jmh/runner/options/CommandLineOptions.java	(revision 949+:f90aef7f1d2c+)
+@@ -30,6 +30,7 @@
+ import joptsimple.OptionSpec;
+ import org.openjdk.jmh.annotations.Mode;
+ import org.openjdk.jmh.annotations.Threads;
++import org.openjdk.jmh.profile.ExternalProfiler;
+ import org.openjdk.jmh.profile.Profiler;
+ import org.openjdk.jmh.profile.ProfilerFactory;
+ import org.openjdk.jmh.results.format.ResultFormatType;
+@@ -38,12 +39,7 @@
+ import org.openjdk.jmh.util.Optional;
+ 
+ import java.io.IOException;
+-import java.util.ArrayList;
+-import java.util.Arrays;
+-import java.util.Collection;
+-import java.util.HashSet;
+-import java.util.List;
+-import java.util.Set;
++import java.util.*;
+ import java.util.concurrent.TimeUnit;
+ 
+ /**
+@@ -442,6 +438,8 @@
+     public void listProfilers() {
+         StringBuilder supported = new StringBuilder();
+         StringBuilder unsupported = new StringBuilder();
++        StringBuilder discovered = new StringBuilder();
++
+         for (Class<? extends Profiler> s : ProfilerFactory.getAvailableProfilers()) {
+             List<String> initMessages = new ArrayList<String>();
+             if (ProfilerFactory.checkSupport(s, initMessages)) {
+@@ -454,6 +452,14 @@
+                 unsupported.append("\n");
+             }
+         }
++
++        ServiceLoader<ExternalProfiler> impl = ServiceLoader.load(ExternalProfiler.class);
++        for (ExternalProfiler s : impl) {
++            discovered.append(String.format("%20s: %s\n",
++                    ProfilerFactory.getLabel(s.getClass()),
++                    ProfilerFactory.getDescription(s.getClass())));
++        }
++
+         if (!supported.toString().isEmpty()) {
+             System.out.println("Supported profilers:\n" + supported.toString());
+         }
+@@ -461,6 +467,11 @@
+         if (!unsupported.toString().isEmpty()) {
+             System.out.println("Unsupported profilers:\n" + unsupported.toString());
+         }
++
++        if (!discovered.toString().isEmpty()) {
++            System.out.println("Discovered profilers:\n" + discovered.toString());
++        }
++
+     }
+ 
+     public void listResultFormats() {
