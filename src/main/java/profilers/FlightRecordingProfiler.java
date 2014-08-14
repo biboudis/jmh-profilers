@@ -1,3 +1,5 @@
+package profilers;
+
 import org.openjdk.jmh.infra.BenchmarkParams;
 import org.openjdk.jmh.profile.ExternalProfiler;
 import org.openjdk.jmh.results.AggregationPolicy;

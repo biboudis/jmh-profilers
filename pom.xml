@@ -6,8 +6,8 @@
 
     <packaging>jar</packaging>
 
-    <groupId>jmh</groupId>
-    <artifactId>profilers</artifactId>
+    <groupId>org</groupId>
+    <artifactId>jmh-profilers</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
