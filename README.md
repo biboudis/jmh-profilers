@@ -1,7 +1,7 @@
-jmh-profilers
+mh-profilers
 =============
 
-Pluggable profilers for [JMH](http://openjdk.java.net/projects/code-tools/jmh/) that are discovered through SPI.
+Pluggable profilers for [JMH](http://openjdk.java.net/projects/code-tools/jmh/) that are discovered through SPI (for [JMH >= 0.9.7](http://mail.openjdk.java.net/pipermail/jmh-dev/2014-August/001280.html)).
 
 Profilers List
 --------------
@@ -21,15 +21,11 @@ This would append in the list of supported or unsupported profilers an entry of 
 <label>: <description>. (discovered)
 ```
 
-
-
 The jmh patch
 -------------
-[This patch](http://mail.openjdk.java.net/pipermail/jmh-dev/2014-August/001274.html) enables SPI-based discovery of profilers in JMH. 
-Test by passing the ```-lprof``` option to discover ```ExternalProfiler```s.
-
-The "(discovered)" flag was added, as a discovered profiler can be a not-supported one as well. 
-So in order to avoid duplication this indication is included. 
+[This patch](http://mail.openjdk.java.net/pipermail/jmh-dev/2014-August/001274.html) 
+enables SPI-based discovery of profilers in JMH. 
+Test by passing the ```-lprof``` option to discover ```Profiler```s. They should be marked with the (discovered) label under the supported or unsupported list.
 
 
 
