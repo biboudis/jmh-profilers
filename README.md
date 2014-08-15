@@ -5,7 +5,7 @@ Pluggable profilers for [JMH](http://openjdk.java.net/projects/code-tools/jmh/) 
 
 Profilers List
 --------------
-* jfr: starts automatically [Java Flight Recording](http://docs.oracle.com/javase/8/docs/technotes/guides/jfr/) 
+* jfr: starts automatically [Java Flight Recorder](http://docs.oracle.com/javase/8/docs/technotes/guides/jfr/) 
 and produces a .jfr file for each benchmark. Each file can be browsed afterwards via [Java Mission Control](http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html).
 This profiler can be considered by JMH as ```supported``` only if the user wants to explicitly enable the [commercial features](http://www.oracle.com/technetwork/java/javase/terms/products/index.html).
 
