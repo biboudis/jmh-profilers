@@ -84,9 +84,9 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 +    public static List<Class<? extends Profiler>> getDiscoveredProfilers() {
 +        List<Class<? extends Profiler>> profs = new ArrayList<Class<? extends Profiler>>();
 +
-+        ServiceLoader<ExternalProfiler> impl = ServiceLoader.loadInstalled(ExternalProfiler.class);
++        ServiceLoader<Profiler> impl = ServiceLoader.loadInstalled(Profiler.class);
 +
-+        for (ExternalProfiler s : impl)
++        for (Profiler s : impl)
 +            profs.add(s.getClass());
 +
          return profs;
