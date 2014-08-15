@@ -1,7 +1,7 @@
 jmh-profilers
 =============
 
-Profilers for [JMH](http://openjdk.java.net/projects/code-tools/jmh/) that are discovered through SPI.
+Pluggable profilers for [JMH](http://openjdk.java.net/projects/code-tools/jmh/) that are discovered through SPI.
 
 Profilers List
 --------------
