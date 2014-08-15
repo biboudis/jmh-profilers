@@ -115,6 +115,7 @@ public class FlightRecordingProfiler implements ExternalProfiler {
 
     @Override
     public boolean checkSupport(List<String> msgs) {
+        msgs.add("Commercial features of the JVM need to be enabled for this profiler.");
         return IS_SUPPORTED;
     }
 
