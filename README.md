@@ -1,5 +1,5 @@
-mh-profilers
-=============
+JMH Pluggable Profilers
+=======================
 
 Pluggable profilers for [JMH](http://openjdk.java.net/projects/code-tools/jmh/) that are discovered through SPI (for [JMH >= 0.9.7](http://mail.openjdk.java.net/pipermail/jmh-dev/2014-August/001280.html)).
 
