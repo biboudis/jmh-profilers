@@ -1,5 +1,6 @@
 JMH Pluggable Profilers
 =======================
+[![Build Status](https://travis-ci.org/biboudis/jmh-profilers.svg?branch=master)](https://travis-ci.org/biboudis/jmh-profilers)
 
 Pluggable profilers for [JMH](http://openjdk.java.net/projects/code-tools/jmh/) that are discovered through SPI (for [JMH >= 0.9.7](http://mail.openjdk.java.net/pipermail/jmh-dev/2014-August/001280.html)).
 
