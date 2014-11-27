@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class FlightRecordingProfiler implements ExternalProfiler {
 
-    private String startFlightRecordingOptions = "duration=60s,name=FULL,settings=profile,";
+    private String startFlightRecordingOptions = "duration=60s,name=profile,settings=profile,";
     private String flightRecorderOptions = "samplethreads=true,";
 
     /**
@@ -67,7 +67,7 @@ public class FlightRecordingProfiler implements ExternalProfiler {
     public Collection<String> addJVMOptions(BenchmarkParams params) {
 
         startFlightRecordingOptions += "filename=" + jfrData;
-        flightRecorderOptions       += "settings=" + params.getJvm().replace("bin/java", "lib/jfr/FULL.jfc");
+        flightRecorderOptions       += "settings=" + params.getJvm().replace("bin/java", "lib/jfr/profile.jfc");
 
         return Arrays.asList(
                 "-XX:+FlightRecorder",
