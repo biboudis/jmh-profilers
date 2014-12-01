@@ -5,8 +5,8 @@ Pluggable profilers for [JMH](http://openjdk.java.net/projects/code-tools/jmh/)
 that are discovered through SPI (for JMH >= 1.2) when the profiler is present in the classpath.
 
 ### Profilers List
-1. [jfr](https://github.com/biboudis/jmh-profilers/blob/master/src/main/java/profilers/FlightRecordingProfiler.java):
-starts automatically
+#### [JFR Profiler](https://github.com/biboudis/jmh-profilers/blob/master/src/main/java/profilers/FlightRecordingProfiler.java)
+This profiler starts automatically
 [Java Flight Recorder](http://docs.oracle.com/javase/8/docs/technotes/guides/jfr/)
 and produces a .jfr file for each benchmark. Each file can be browsed afterwards
 via
