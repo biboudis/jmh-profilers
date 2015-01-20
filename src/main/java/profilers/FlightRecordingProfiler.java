@@ -13,18 +13,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.management.ManagementFactory;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 // Effectively equivalent to passing jvm args to append for each benchmark. e.g.,
 //
 //@Fork(jvmArgsAppend =
 //{"-XX:+UnlockCommercialFeatures",
 //  "-XX:+FlightRecorder",
-//  "-XX:StartFlightRecording=duration=60s,filename=./profiling-data.jfr,name=FULL,settings=profile",
-//  "-XX:FlightRecorderOptions=settings=./openjdk/jdk1.8.0/jre/lib/jfr/FULL.jfc,samplethreads=true"
+//  "-XX:StartFlightRecording=duration=60s,filename=./profiling-data.jfr,name=profile,settings=profile",
+//  "-XX:FlightRecorderOptions=settings=./openjdk/jdk1.8.0/jre/lib/jfr/profile.jfc,samplethreads=true"
 //})
 
 /**
@@ -80,10 +77,12 @@ public class FlightRecordingProfiler implements ExternalProfiler {
 
     }
 
+    static int currentId;
+
     @Override
     public Collection<? extends Result> afterTrial(BenchmarkParams benchmarkParams, File stdOut, File stdErr) {
 
-        String target = SAVE_FLIGHT_OUTPUT_TO + "/" + benchmarkParams.id() + ".jfr";
+        String target = SAVE_FLIGHT_OUTPUT_TO + "/" + benchmarkParams.id() + "-" + currentId++ + ".jfr";
 
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
