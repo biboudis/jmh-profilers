@@ -8,7 +8,7 @@
 
     <groupId>com.github.biboudis</groupId>
     <artifactId>jmh-profilers</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
 
     <name>JMH Pluggable Profilers</name>
     <description>Pluggable profilers for JMH that are discovered through SPI (for JMH >= 1.2) when the profiler is
