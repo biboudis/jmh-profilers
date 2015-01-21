@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <packaging>jar</packaging>
@@ -70,9 +71,7 @@
 
             <plugin>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
+                <version>2.7</version>
             </plugin>
 
             <plugin>
@@ -89,6 +88,7 @@
 
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
                 <executions>
                     <execution>
                         <id>package-sources</id>
@@ -101,6 +101,7 @@
 
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.1</version>
                 <executions>
                     <execution>
                         <id>package-javadoc</id>
@@ -133,8 +134,8 @@
         <connection>scm:git:git@github.com:biboudis/jmh-profilers.git</connection>
         <developerConnection>scm:git:git@github.com:biboudis/jmh-profilers.git</developerConnection>
         <url>git@github.com:biboudis/jmh-profilers.git</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <jdk.version>1.6</jdk.version>
