@@ -13,7 +13,7 @@ This profiler can be considered by JMH as ```supported``` only if the user wants
 to explicitly enable the
 [commercial features](http://www.oracle.com/technetwork/java/javase/terms/products/index.html).
 
-## Installation
+### Installation
 ```
 <dependency>
   <groupId>com.github.biboudis</groupId>
