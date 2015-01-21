@@ -13,6 +13,15 @@ This profiler can be considered by JMH as ```supported``` only if the user wants
 to explicitly enable the
 [commercial features](http://www.oracle.com/technetwork/java/javase/terms/products/index.html).
 
+## Installation
+```
+<dependency>
+  <groupId>com.github.biboudis</groupId>
+  <artifactId>jmh-profilers</artifactId>
+  <version>0.1.2</version>
+</dependency>
+```
+
 ### Usage
 Check if your profiler is discovered through the ```-lprof``` JMH option. This
 would append in the list of supported or unsupported profilers an entry of the
