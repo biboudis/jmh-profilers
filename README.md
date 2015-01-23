@@ -13,13 +13,18 @@ This profiler can be considered by JMH as ```supported``` only if the user wants
 to explicitly enable the
 [commercial features](http://www.oracle.com/technetwork/java/javase/terms/products/index.html).
 
-### Installation
+### Installation 
+#### Maven
 ```
 <dependency>
   <groupId>com.github.biboudis</groupId>
   <artifactId>jmh-profilers</artifactId>
   <version>0.1.2</version>
 </dependency>
+```
+#### SBT with sbt-jmh plugin
+```
+libraryDependencies ++= Seq("com.github.biboudis" % "jmh-profilers" % "0.1.2")
 ```
 
 ### Usage
@@ -28,13 +33,4 @@ would append in the list of supported or unsupported profilers an entry of the
 following format:
 ```
 <label>: <description>. (discovered)
-```
-
-### Java
-Make sure the external profiler is present in classpath.
-
-### Scala
-For use with sbt-jmh you should add the jar to ```build.sbt```, e.g.:
-```
-unmanagedJars in Compile := Seq(Attributed.blank(file("jmh-profilers/target/jmh-profilers-0.1.jar")))
 ```
