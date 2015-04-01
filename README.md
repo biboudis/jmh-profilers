@@ -34,3 +34,7 @@ following format:
 ```
 <label>: <description>. (discovered)
 ```
+
+### Contributing
+
+Sending PRs with improvements, additions with new profilers and opening issues is highly encouraged. 
