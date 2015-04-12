@@ -2,10 +2,7 @@ package profilers;
 
 import org.openjdk.jmh.infra.BenchmarkParams;
 import org.openjdk.jmh.profile.ExternalProfiler;
-import org.openjdk.jmh.results.AggregationPolicy;
-import org.openjdk.jmh.results.Aggregator;
-import org.openjdk.jmh.results.Result;
-import org.openjdk.jmh.results.ResultRole;
+import org.openjdk.jmh.results.*;
 import org.openjdk.jmh.util.FileUtils;
 
 import java.io.File;
@@ -80,9 +77,8 @@ public class FlightRecordingProfiler implements ExternalProfiler {
     static int currentId;
 
     @Override
-    public Collection<? extends Result> afterTrial(BenchmarkParams benchmarkParams, File stdOut, File stdErr) {
-
-        String target = SAVE_FLIGHT_OUTPUT_TO + "/" + benchmarkParams.id() + "-" + currentId++ + ".jfr";
+    public Collection<? extends Result> afterTrial(BenchmarkResult benchmarkResult, long l, File stdOut, File stdErr) {
+        String target = SAVE_FLIGHT_OUTPUT_TO + "/" + benchmarkResult.getParams().id() + "-" + currentId++ + ".jfr";
 
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
@@ -148,13 +144,13 @@ public class FlightRecordingProfiler implements ExternalProfiler {
         }
 
         @Override
-        public String extendedInfo(String label) {
+        public String extendedInfo() {
             return "JFR Messages:\n--------------------------------------------\n" + output;
         }
 
         private class NoResultAggregator implements Aggregator<NoResult> {
             @Override
-            public Result aggregate(Collection<NoResult> results) {
+            public NoResult aggregate(Collection<NoResult> results) {
                 String output = "";
                 for (NoResult r : results) {
                     output += r.output;
