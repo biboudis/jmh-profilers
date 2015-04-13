@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/biboudis/jmh-profilers.svg?branch=master)](https://travis-ci.org/biboudis/jmh-profilers)
 
 Pluggable profilers for [JMH](http://openjdk.java.net/projects/code-tools/jmh/)
-that are discovered through SPI (for JMH >= 1.2) when the profiler is present in the classpath.
+that are discovered through SPI (for JMH >= 1.8) when the profiler is present in the classpath.
 
 ### Profilers List
 1. JFR Profiler: starts automatically [Java Flight Recorder](http://docs.oracle.com/javase/8/docs/technotes/guides/jfr/)
