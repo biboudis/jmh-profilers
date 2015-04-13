@@ -1,5 +1,6 @@
 ## JMH Pluggable Profilers
-[![Build Status](https://travis-ci.org/biboudis/jmh-profilers.svg?branch=master)](https://travis-ci.org/biboudis/jmh-profilers)
+[![Build Status](https://travis-ci.org/biboudis/jmh-profilers.svg?branch=master)]
+(https://travis-ci.org/biboudis/jmh-profilers) [![Maven Central](https://img.shields.io/maven-central/v/com.github.biboudis/jmh-profilers.svg)](https://maven-repository.com/artifact/com.github.biboudis/jmh-profilers)
 
 Pluggable profilers for [JMH](http://openjdk.java.net/projects/code-tools/jmh/)
 that are discovered through SPI (for JMH >= 1.8) when the profiler is present in the classpath.
