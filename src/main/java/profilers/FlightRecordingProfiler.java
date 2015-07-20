@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.management.ManagementFactory;
+import java.net.URI;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 // Effectively equivalent to passing jvm args to append for each benchmark. e.g.,
@@ -61,7 +64,8 @@ public class FlightRecordingProfiler implements ExternalProfiler {
     public Collection<String> addJVMOptions(BenchmarkParams params) {
 
         startFlightRecordingOptions += "filename=" + jfrData;
-        flightRecorderOptions       += "settings=" + params.getJvm().replace("bin/java", "lib/jfr/profile.jfc");
+        String jfcPath = Paths.get(params.getJvm()).resolve("../../lib/jfr/profile.jfc").normalize().toAbsolutePath().toString();
+        flightRecorderOptions       += "settings=" + jfcPath;
 
         return Arrays.asList(
                 "-XX:+FlightRecorder",
@@ -78,7 +82,7 @@ public class FlightRecordingProfiler implements ExternalProfiler {
 
     @Override
     public Collection<? extends Result> afterTrial(BenchmarkResult benchmarkResult, long l, File stdOut, File stdErr) {
-        String target = SAVE_FLIGHT_OUTPUT_TO + "/" + benchmarkResult.getParams().id() + "-" + currentId++ + ".jfr";
+        String target = Paths.get(SAVE_FLIGHT_OUTPUT_TO).resolve(benchmarkResult.getParams().getBenchmark() + "-" + currentId++ + ".jfr").toAbsolutePath().toString();
 
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
@@ -87,7 +91,9 @@ public class FlightRecordingProfiler implements ExternalProfiler {
             FileUtils.copy(jfrData, target);
             pw.println("Flight Recording output saved to " + target);
         } catch (IOException e) {
+            e.printStackTrace();
             pw.println("Unable to save flight output to " + target);
+            pw.println("Did you miss the system property: -Djmh.jfr.saveTo ?");
         }
 
         pw.flush();
