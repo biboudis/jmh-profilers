@@ -45,7 +45,7 @@
                 </configuration>
             </plugin>
 
-<!--             <plugin>
+            <plugin>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>1.5</version>
                 <executions>
@@ -58,7 +58,7 @@
                     </execution>
                 </executions>
             </plugin>
- -->
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
