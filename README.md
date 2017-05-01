@@ -20,7 +20,7 @@ _where in the version field you can use the latest one_
 <dependency>
   <groupId>com.github.biboudis</groupId>
   <artifactId>jmh-profilers</artifactId>
-  <version>0.1.2</version>
+  <version>0.1.4</version>
 </dependency>
 ```
 #### SBT with sbt-jmh plugin
