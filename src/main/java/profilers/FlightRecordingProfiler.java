@@ -1,19 +1,24 @@
 package profilers;
 
-import org.openjdk.jmh.infra.BenchmarkParams;
-import org.openjdk.jmh.profile.ExternalProfiler;
-import org.openjdk.jmh.results.*;
-import org.openjdk.jmh.util.FileUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.management.ManagementFactory;
-import java.net.URI;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+import org.openjdk.jmh.infra.BenchmarkParams;
+import org.openjdk.jmh.profile.ExternalProfiler;
+import org.openjdk.jmh.results.AggregationPolicy;
+import org.openjdk.jmh.results.Aggregator;
+import org.openjdk.jmh.results.BenchmarkResult;
+import org.openjdk.jmh.results.Result;
+import org.openjdk.jmh.results.ResultRole;
+import org.openjdk.jmh.util.FileUtils;
 
 // Effectively equivalent to passing jvm args to append for each benchmark. e.g.,
 //
