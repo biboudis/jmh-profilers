@@ -18,12 +18,12 @@
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
-            <version>1.8</version>
+            <version>1.18</version>
         </dependency>
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
-            <version>1.8</version>
+            <version>1.18</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -45,7 +45,7 @@
                 </configuration>
             </plugin>
 
-            <plugin>
+<!--             <plugin>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>1.5</version>
                 <executions>
@@ -58,7 +58,7 @@
                     </execution>
                 </executions>
             </plugin>
-
+ -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
@@ -137,7 +137,7 @@
     </scm>
 
     <properties>
-        <jdk.version>1.6</jdk.version>
+        <jdk.version>1.7</jdk.version>
     </properties>
 
     <distributionManagement>

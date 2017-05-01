@@ -65,7 +65,7 @@ public class FlightRecordingProfiler implements ExternalProfiler {
 
         startFlightRecordingOptions += "filename=" + jfrData;
         String jfcPath = Paths.get(params.getJvm()).resolve("../../lib/jfr/profile.jfc").normalize().toAbsolutePath().toString();
-        flightRecorderOptions       += "settings=" + jfcPath;
+        flightRecorderOptions       += ",settings=" + jfcPath;
 
         return Arrays.asList(
                 "-XX:+FlightRecorder",
@@ -114,13 +114,13 @@ public class FlightRecordingProfiler implements ExternalProfiler {
         return false;
     }
 
-    @Override
+    
     public boolean checkSupport(List<String> msgs) {
         msgs.add("Commercial features of the JVM need to be enabled for this profiler.");
         return IS_SUPPORTED;
     }
 
-    @Override
+    
     public String label() {
         return "jfr";
     }
