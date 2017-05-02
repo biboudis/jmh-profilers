@@ -6,7 +6,7 @@
 
     <groupId>com.github.biboudis</groupId>
     <artifactId>jmh-profilers</artifactId>
-    <version>0.1.4</version>
+    <version>0.1.5-SNAPSHOT</version>
 
     <name>JMH Pluggable Profilers</name>
     <description>Pluggable profilers for JMH that are discovered through SPI (for JMH &gt;= 1.2) when the profiler is
@@ -133,7 +133,7 @@
         <connection>scm:git:git@github.com:biboudis/jmh-profilers.git</connection>
         <developerConnection>scm:git:git@github.com:biboudis/jmh-profilers.git</developerConnection>
         <url>git@github.com:biboudis/jmh-profilers.git</url>
-        <tag>jmh-profilers-0.1.4</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
